@@ -1,15 +1,12 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+<div id="chat">聊天</div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'Chat',
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>

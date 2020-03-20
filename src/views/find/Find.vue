@@ -1,15 +1,12 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+<div id="find">发现</div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'Find',
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>

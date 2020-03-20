@@ -8,5 +8,18 @@ module.exports = {
         'views': '@/views',
       }
     }
+  },
+  // 跨域代理
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost/api',
+        changOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   }
 }
