@@ -114,6 +114,11 @@
           });
           return
         }
+        // 保存token
+        sessionStorage.setItem('token', result.data.data.token);
+        // 用于验证token是否过期
+        sessionStorage.setItem('expire', new Date().getTime());
+
         this.$store.commit('record', result.data.data.username);
         this.$router.replace('/welcome')
       },

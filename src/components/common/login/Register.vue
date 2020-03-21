@@ -86,8 +86,7 @@
             });
             return
           }
-          this.$store.commit('record', result.data.data.username);
-          this.$router.replace('/welcome')
+          this.$router.replace('/login')
         }
       },
       // 去登录

@@ -70,4 +70,10 @@ const router = new VueRouter({
   routes
 })
 
+// 验证是否登录
+router.beforeEach((to, form, next) => {
+  if(to.path === '/login' || to.path === '/register') return next();
+  sessionStorage.getItem('token') ? next() : next('/login');
+})
+
 export default router

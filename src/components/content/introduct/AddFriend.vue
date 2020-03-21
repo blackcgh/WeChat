@@ -17,7 +17,7 @@
     <div class="info-submit">
       <h2>申请添加朋友</h2>
       <h4>发送添加朋友申请</h4>
-      <textarea v-model="introduction"></textarea>
+      <textarea v-model="introduction" :placeholder="'你好，我是'+$store.state.username"></textarea>
     </div>
   </div>
 </template>
