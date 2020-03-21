@@ -19,7 +19,40 @@ function register(username, password) {
   })
 }
 
+// 退出登录
+function signOut(username) {
+  return axios({
+    method: 'POST',
+    url: '/user/signout',
+    data: { username }
+  })
+}
+
+// 搜索用户
+function search(keyword) {
+  return axios({
+    method: 'GET',
+    url: '/user/search',
+    params: { keyword }
+  })
+}
+
+// 添加朋友
+function add(obj, receiveOne) {
+  return axios({
+    method: 'POST',
+    url: '/user/add',
+    data: {
+      obj,
+      receiveOne
+    }
+  })
+}
+
 export {
   login,
-  register
+  register,
+  signOut,
+  search,
+  add
 }

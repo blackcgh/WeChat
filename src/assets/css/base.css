@@ -1,4 +1,5 @@
 @import './normalize.css';
+@import './iconfont.css';
 
 .clearfix::after {
   clear: both;
@@ -11,4 +12,12 @@
 
 .clearfix {
   zoom: 1;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
 }

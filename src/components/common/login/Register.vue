@@ -1,9 +1,5 @@
 <template>
-  <!-- 加载图标 -->
-  <div id="register"
-       v-loading="loading"
-       element-loading-text="请稍后 . . ."
-       element-loading-background="rgba(0, 0, 0, 0.8)">
+  <div id="register">
     <!-- 内容 -->
     <div class="desc">微信注册</div>
 
@@ -47,8 +43,7 @@
         formData: {
           username: '',
           password: ''
-        },
-        loading: false,
+        }
       }
     },
     computed: {
@@ -67,11 +62,13 @@
           if (userLen < 2 || userLen > 6 || pwdLen < 2 || pwdLen > 6) {
             if (userLen < 2 || userLen > 6) {
               this.$alert('用户名必须在 2 到 6 个字符之间', '用户名错误', {
+                closeOnClickModal: true,
                 confirmButtonText: '确定'
               });
             }
             if (pwdLen < 2 || pwdLen > 6) {
               this.$alert('密码必须在 2 到 15 个字符之间', '密码错误', {
+                closeOnClickModal: true,
                 confirmButtonText: '确定'
               });
             }
@@ -79,18 +76,19 @@
           }
 
           // 开始注册
-          this.loading = true;
+          this.$loading.show();
           const result = await register(this.formData.username, this.formData.password);
-          this.loading = false;
+          this.$loading.hidden();
           if(result.data.errno !== 0) {
             this.$alert('该用户已存在！', '注册失败', {
+              closeOnClickModal: true,
               confirmButtonText: '确定'
             });
             return
           }
-          this.$router.replace('/welcome');
+          this.$store.commit('record', result.data.data.username);
+          this.$router.replace('/welcome')
         }
-
       },
       // 去登录
       goLogin() {
@@ -132,7 +130,7 @@
     font-size: 18px;
   }
 
-  .el-input input {
+  .el-form-item .el-input input {
     border: 0;
   }
 
@@ -146,30 +144,6 @@
 
   .active {
     background-color: rgb(14, 212, 14) !important;
-    color: #fff !important;
-  }
-
-  .el-loading-mask {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .2) !important;
-  }
-
-  .el-loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    height: 70px;
-    background-color: rgba(0, 0, 0, .8);
-    transform: translate(-50%, -50%);
-  }
-
-  .path {
-    stroke: #fff !important;
-  }
-
-  .el-loading-text {
     color: #fff !important;
   }
 

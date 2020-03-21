@@ -1,9 +1,5 @@
 <template>
-  <!-- 加载图标 -->
-  <div id="login"
-       v-loading="loading"
-       element-loading-text="请稍后 . . ."
-       element-loading-background="rgba(0, 0, 0, 0.8)">
+  <div id="login">
     <!-- 内容 -->
     <div class="desc">微信登录</div>
 
@@ -28,8 +24,12 @@
 
       <!-- 按钮 -->
       <el-form-item>
-        <el-button class="btn" :class="{active: getCurrent}" v-if="!isShow" @click="next">下一步</el-button>
-        <el-button class="btn" :class="{active: getCurrent}" v-else @click="login">登录</el-button>
+        <el-button class="btn" :class="{active: getCurrent}" v-if="!isShow" @click="next">
+          下一步
+        </el-button>
+        <el-button class="btn" :class="{active: getCurrent}" v-else @click="login">
+          登录
+        </el-button>
       </el-form-item>
     </el-form>
 
@@ -53,7 +53,6 @@
           password: ''
         },
         isShow: false,
-        loading: false,
         value: false
       }
     },
@@ -77,9 +76,9 @@
           }
 
           // 加载一秒后显示密码框
-          this.loading = true;
+          this.$loading.show();
           setTimeout(() => {
-            this.loading = false;
+            this.$loading.hidden();
             this.isShow = true;
             this.value = true;
           }, 1000)
@@ -98,22 +97,25 @@
         // 警告信息
         if (length < 2 || length > 15) {
           this.$alert('密码必须在 2 到 15 个字符之间', '密码错误', {
+            closeOnClickModal: true,
             confirmButtonText: '确定'
           });
           return
         }
 
         // 开始登录
-        this.loading = true;
+        this.$loading.show();
         const result = await login(this.formData.username, this.formData.password);
-        this.loading = false;
+        this.$loading.hidden();
         if(result.data.errno !== 0) {
-          this.$alert('没有该用户！', '登录失败', {
+          this.$alert('该用户不存在！', '登录失败', {
+            closeOnClickModal: true,
             confirmButtonText: '确定'
           });
           return
         }
-        this.$router.replace('/welcome');
+        this.$store.commit('record', result.data.data.username);
+        this.$router.replace('/welcome')
       },
 
       // 前往注册页面
@@ -156,7 +158,7 @@
     font-size: 18px;
   }
 
-  .el-input input {
+  .el-form-item .el-input input {
     border: 0;
   }
 
@@ -170,30 +172,6 @@
 
   .active {
     background-color: rgb(14, 212, 14) !important;
-    color: #fff !important;
-  }
-
-  .el-loading-mask {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .4) !important;
-  }
-
-  .el-loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    height: 70px;
-    background-color: rgba(0, 0, 0, .8);
-    transform: translate(-50%, -50%);
-  }
-
-  .path {
-    stroke: #fff !important;
-  }
-
-  .el-loading-text {
     color: #fff !important;
   }
 
