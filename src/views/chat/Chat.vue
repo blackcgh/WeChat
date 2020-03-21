@@ -1,10 +1,17 @@
 <template>
-<div id="chat">聊天</div>
+<div id="chat">
+  <nav-bar>微信(212)</nav-bar>
+</div>
 </template>
 
 <script>
+import NavBar from 'components/common/navbar/NavBar'
+
 export default {
   name: 'Chat',
+  components: {
+    NavBar
+  }
 }
 </script>
 

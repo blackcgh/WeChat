@@ -12,6 +12,10 @@ const Friend = () => import('views/friend/Friend')
 const Find = () => import('views/find/Find')
 const Profile = () => import('views/profile/Profile')
 
+const Search = () => import('components/content/search/Search')
+const Introduct = () => import('components/content/introduct/Introduct')
+const AddFriend = () => import('components/content/introduct/AddFriend')
+
 const routes = [
   {
     path: '/',
@@ -45,6 +49,18 @@ const routes = [
       {
         path: '/profile',
         component: Profile
+      },
+      {
+        path: '/search',
+        component: Search
+      },
+      {
+        path: '/introduct',
+        component: Introduct
+      },
+      {
+        path: '/add',
+        component: AddFriend
       }
     ]
   }

@@ -2,19 +2,23 @@
 <div id="main-tab-bar">
   <tab-bar>
     <tab-bar-item link="/chat">
-      <template v-slot:icon>图标</template>
+      <template v-slot:icon><i class="iconfont icon-liaotian"></i></template>
+      <template v-slot:icon-active><i class="iconfont icon-liaotian1"></i></template>
       <template v-slot:text>微信</template>
     </tab-bar-item>
     <tab-bar-item link="/friend">
-      <template v-slot:icon>图标</template>
+      <template v-slot:icon><i class="iconfont icon-mail-list big"></i></template>
+      <template v-slot:icon-active><i class="iconfont icon-tongxunlu big"></i></template>
       <template v-slot:text>通讯录</template>
     </tab-bar-item>
     <tab-bar-item link="/find">
-      <template v-slot:icon>图标</template>
+      <template v-slot:icon><i class="iconfont icon-find-normal"></i></template>
+      <template v-slot:icon-active><i class="iconfont icon-faxian-mianxing-"></i></template>
       <template v-slot:text>发现</template>
     </tab-bar-item>
     <tab-bar-item link="/profile">
-      <template v-slot:icon>图标</template>
+      <template v-slot:icon><i class="iconfont icon-wo"></i></template>
+      <template v-slot:icon-active><i class="iconfont icon-wode"></i></template>
       <template v-slot:text>我</template>
     </tab-bar-item>
   </tab-bar>
@@ -40,6 +44,16 @@ export default {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 60px;
+  height: 59px;
+  border-top: 1px solid #eee;
+  background-color: rgb(248, 248, 246);
+}
+
+i {
+  font-size: 28px !important;
+}
+
+.big {
+  font-size: 34px !important;
 }
 </style>

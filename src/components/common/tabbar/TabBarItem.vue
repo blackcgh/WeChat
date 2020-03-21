@@ -1,7 +1,8 @@
 <template>
 <div id="tab-bar-item" @click="click">
-  <div class="icon"><slot name="icon"></slot></div>
-  <div class="text"><slot name="text"></slot></div>
+  <div class="icon" v-show="!getCurrentPath"><slot name="icon"></slot></div>
+  <div class="icon-active" v-show="getCurrentPath"><slot name="icon-active"></slot></div>
+  <div class="text" :class="{active: getCurrentPath}"><slot name="text"></slot></div>
 </div>
 </template>
 
@@ -33,11 +34,20 @@ export default {
   text-align: center;
 }
 
-.icon {
+.icon,
+.icon-active {
   width: 36px;
   height: 36px;
   margin: 3px auto;
-  font-size: 18px;
   line-height: 36px;
+}
+
+.icon-active {
+  color: rgb(38, 216, 38);
+}
+
+.active {
+  background-color: #fff !important;
+  color: rgb(38, 216, 38) !important;
 }
 </style>
