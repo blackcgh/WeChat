@@ -49,10 +49,23 @@ function add(obj, receiveOne) {
   })
 }
 
+// 同意添加朋友
+function agree(agreeOne, requestOne) {
+  return axios({
+    method: 'POST',
+    url: '/user/agree',
+    data: {
+      agreeOne,
+      requestOne
+    }
+  })
+}
+
 export {
   login,
   register,
   signOut,
   search,
-  add
+  add,
+  agree
 }

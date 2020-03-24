@@ -7,14 +7,19 @@ const Login = () => import('components/common/login/Login')
 const Register = () => import('components/common/login/Register')
 
 const Welcome = () => import('views/welcome/Welcome')
-const Chat = () => import('views/chat/Chat')
+const WeChat = () => import('views/wechat/WeChat')
 const Friend = () => import('views/friend/Friend')
 const Find = () => import('views/find/Find')
 const Profile = () => import('views/profile/Profile')
+const Chat = () => import('views/chat/Chat')
 
 const Search = () => import('components/content/search/Search')
 const Introduct = () => import('components/content/introduct/Introduct')
 const AddFriend = () => import('components/content/introduct/AddFriend')
+
+const Info = () => import('views/profile/childcomps/Info')
+const Setting = () => import('views/profile/childcomps/Setting')
+const Response = () => import('views/friend/childcomps/Response')
 
 const routes = [
   {
@@ -32,11 +37,11 @@ const routes = [
   {
     path: '/welcome',
     component: Welcome,
-    redirect: '/chat',
+    redirect: '/wechat',
     children: [
       {
-        path: '/chat',
-        component: Chat
+        path: '/wechat',
+        component: WeChat
       },
       {
         path: '/friend',
@@ -48,7 +53,11 @@ const routes = [
       },
       {
         path: '/profile',
-        component: Profile
+        component: Profile,
+      },
+      {
+        path: '/chat',
+        component: Chat
       },
       {
         path: '/search',
@@ -61,6 +70,20 @@ const routes = [
       {
         path: '/add',
         component: AddFriend
+      },
+      // profile子页面
+      {
+        path: '/info',
+        component: Info
+      },
+      {
+        path: '/setting',
+        component: Setting
+      },
+      // friend子页面
+      {
+        path: '/response',
+        component: Response
       }
     ]
   }

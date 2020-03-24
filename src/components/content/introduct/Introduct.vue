@@ -38,19 +38,13 @@
           query: this.user
         })
       }
-    },
-    mounted() {
-      // 关闭已完成提示框
-      setTimeout(() => {
-        this.$done.hidden()
-      }, 2000);
     }
   }
 </script>
 
 <style scoped>
   #introduct {
-    position: relative;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: rgb(248, 248, 246);

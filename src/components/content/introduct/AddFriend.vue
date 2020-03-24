@@ -17,7 +17,7 @@
     <div class="info-submit">
       <h2>申请添加朋友</h2>
       <h4>发送添加朋友申请</h4>
-      <textarea v-model="introduction" :placeholder="'你好，我是'+$store.state.username"></textarea>
+      <textarea v-model="introduction"></textarea>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@
     data() {
       return {
         user: this.$route.query,
-        introduction: ''
+        introduction: '你好，我是' + this.$store.state.userData.username
       }
     },
     components: {
@@ -57,7 +57,7 @@
         this.$loading.show('正在发送');
         // 请求人信息
         const obj = {
-          sendOne: this.$store.state.username,
+          sendOne: this.$store.state.userData.username,
           introduction: this.introduction
         }
         await add(obj, this.user.username);
@@ -71,7 +71,7 @@
 
 <style scoped>
   #add-friend {
-    position: relative;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: #fff;

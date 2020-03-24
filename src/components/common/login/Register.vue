@@ -9,7 +9,8 @@
         <el-input
           v-model="formData.username"
           placeholder="请填写用户名"
-          clearable></el-input>
+          clearable
+          key="ruser"></el-input>
       </el-form-item>
 
       <!-- 密码输入框 -->
@@ -18,12 +19,17 @@
           type="password"
           v-model="formData.password"
           placeholder="填写密码"
-          clearable></el-input>
+          clearable
+          key="rpwd"></el-input>
       </el-form-item>
 
       <!-- 按钮 -->
       <el-form-item>
-        <el-button class="btn" :class="{active: getCurrent}" @click="register">注册
+        <el-button
+          class="btn"
+          :class="{active: getCurrent}"
+          key="register"
+          @click="register">注册
         </el-button>
       </el-form-item>
     </el-form>
@@ -124,7 +130,7 @@
   }
 
   .el-input {
-    width: 80%;
+    width: 75%;
     border: 0;
     font-size: 18px;
   }

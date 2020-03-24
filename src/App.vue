@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    getTime() {
+      return +new Date()
+    }
+  }
 }
 </script>
 

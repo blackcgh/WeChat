@@ -41,7 +41,12 @@
         this.isShow = !this.isShow
 
       },
-      search() {}
+      search() {
+        this.$alert('暂时不支持搜索功能', '信息提示', {
+          closeOnClickModal: true,
+          confirmButtonText: '确定'
+        });
+      }
     }
   }
 </script>
@@ -50,8 +55,9 @@
   .nav-bar {
     position: relative;
     width: 100vw;
-    height: 48px;
-    background-color: rgb(248, 248, 246);
+    height: 47px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ededed;
     font-size: 20px;
     line-height: 48px;
     text-align: center;
@@ -62,6 +68,8 @@
     height: 100%;
     padding-left: 10px;
     text-align: left;
+    font-size: 18px;
+    font-weight: 700;
   }
 
   .add {

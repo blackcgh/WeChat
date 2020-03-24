@@ -10,7 +10,8 @@
           :disabled="value"
           v-model="formData.username"
           placeholder="请填写用户名"
-          clearable></el-input>
+          clearable
+          key="username"></el-input>
       </el-form-item>
 
       <!-- 密码输入框 -->
@@ -19,15 +20,20 @@
           type="password"
           v-model="formData.password"
           placeholder="请填写微信密码"
-          clearable></el-input>
+          clearable
+          key="password"></el-input>
       </el-form-item>
 
       <!-- 按钮 -->
       <el-form-item>
-        <el-button class="btn" :class="{active: getCurrent}" v-if="!isShow" @click="next">
-          下一步
+        <el-button
+          class="btn"
+          :class="{active: getCurrent}"
+          v-if="!isShow"
+          @click="next"
+          key="next">下一步
         </el-button>
-        <el-button class="btn" :class="{active: getCurrent}" v-else @click="login">
+        <el-button class="btn" :class="{active: getCurrent}" v-else key="login" @click="login">
           登录
         </el-button>
       </el-form-item>
@@ -70,6 +76,7 @@
         if (length !== 0) {
           if (length < 2 || length > 6) {
             this.$alert('用户名必须在 2 到 6 个字符之间', '用户名错误', {
+              closeOnClickModal: true,
               confirmButtonText: '确定'
             });
             return
@@ -108,7 +115,7 @@
         const result = await login(this.formData.username, this.formData.password);
         this.$loading.hidden();
         if(result.data.errno !== 0) {
-          this.$alert('该用户不存在！', '登录失败', {
+          this.$alert('用户名或密码错误！', '登录失败', {
             closeOnClickModal: true,
             confirmButtonText: '确定'
           });
@@ -119,7 +126,7 @@
         // 用于验证token是否过期
         sessionStorage.setItem('expire', new Date().getTime());
 
-        this.$store.commit('record', result.data.data.username);
+        this.$store.commit('record', result.data.data.userData[0]);
         this.$router.replace('/welcome')
       },
 
@@ -158,7 +165,7 @@
   }
 
   .el-input {
-    width: 80%;
+    width: 75%;
     border: 0;
     font-size: 18px;
   }

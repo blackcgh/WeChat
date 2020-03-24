@@ -7,7 +7,7 @@
     <div class="search-area">
       <el-input v-model="keyword" placeholder="输入用户名搜索" prefix-icon="el-icon-search" clearable>
       </el-input>
-      <el-button type="primary" @click="search">搜索</el-button>
+      <el-button type="primary" key="search" @click="search">搜索</el-button>
     </div>
 
     <!-- 搜索结果 -->
@@ -18,7 +18,7 @@
           <!-- 头像 -->
           <div><img src="" alt=""></div>
           <!-- 用户名 -->
-          {{item.username}}
+          <div>{{item.username}}</div>
         </li>
       </ul>
       <div v-else class="clue">没有该用户！</div>
@@ -59,17 +59,24 @@
         }
 
         // 开始搜索
+        this.result = [];
         this.$loading.show();
-        const result = await search(this.keyword);
-        this.result = result.data.data.filter(el => {
-          return el.username !== this.$store.state.username
+        const result = (await search(this.keyword)).data.data;
+        const username = this.$store.state.userData.username;
+        const friend = this.$store.state.userData.friend;
+        const all = [username, ...friend];
+        result.forEach(el => {
+          const index = all.indexOf(el.username);
+          if(index === -1) {
+            this.result.push(el)
+          }
         });
         this.$loading.hidden();
         this.isEmpty = false
       },
       // 去往用户详情页
       goDetail(e) {
-        const index = e.target.getAttribute('data-index');
+        const index = e.target.parentNode.getAttribute('data-index');
         this.$router.push({
           path: '/introduct',
           query: this.result[index]
@@ -81,16 +88,16 @@
 
 <style>
   #search-friend {
-    position: relative;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: #fff;
     z-index: 1;
   }
 
-  .nav-bar i {
+  .nav-bar .text i {
     position: relative;
-    top: 1px;
+    top: 0;
     left: 0;
     padding: 15px 10px 15px 0;
   }
@@ -99,57 +106,58 @@
     padding: 10px 0;
   }
 
-  .el-input {
+  #search-friend .el-input {
     width: 75%;
     margin: 0 8px;
     font-size: 16px;
   }
 
-  .el-button {
-    width: 20%;
+  #search-friend .el-button {
+    width: 18%;
     height: 40px;
     padding: 0;
   }
 
-  .search-result {
-    padding: 0 8px;
+  .search-result h3 {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #999;
   }
 
-  .search-result h3 {
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-    font-size: 14px;
-    color: #bbb;
+  .search-result ul {
+    background-color: #fff;
   }
 
   .search-result li {
-    height: 48px;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    height: 68px;
+    background-color: #fff;
     font-size: 18px;
     line-height: 48px;
   }
 
-  .search-result li:hover {
-    background-color: #ddd;
+  .search-result li div {
+    float: left;
+    height: 48px;
   }
 
-  .search-result li>div {
-    float: left;
+  .search-result li div:first-child {
     width: 48px;
-    height: 48px;
-    margin-right: 15px;
+    margin: 10px 15px 10px 10px;
     border-radius: 3px;
     background-color: rgb(57, 74, 235);
   }
 
-  .el-message-box {
-    width: 350px;
+  .search-result li div:last-child {
+    width: 292px;
+    padding: 10px 0 9px;
+    border-bottom: 1px solid #ddd;
   }
 
   .clue {
-    margin-top: 20px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #969696;
     text-align: center;
-    color: #999;
   }
 </style>

@@ -179,6 +179,14 @@ sup {
   top: -0.5em;
 }
 
+textarea,
+button {
+  border: 0;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* Embedded content
    ========================================================================== */
 

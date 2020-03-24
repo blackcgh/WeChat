@@ -51,12 +51,17 @@ export default {
   },
   methods: {
     go(e) {
-      const str = e.target.getAttribute('data-name');
+      let str;
+      if(e.target.tagName === 'I') {
+        str = e.target.parentNode.getAttribute('data-name');
+      } else {
+         str = e.target.getAttribute('data-name');
+      }
       if(str === 'friend') {
         this.$router.push('/search');
         return
       }
-      this.$alert('该功能暂时还没有开发', '信息提示', {
+      this.$alert('暂时只支持添加朋友功能', '信息提示', {
         closeOnClickModal: true,
         confirmButtonText: '确定'
       });
@@ -75,13 +80,14 @@ export default {
   overflow: hidden;
   opacity: 0;
   transition: all .2s;
+  z-index: 1;
 }
 
 .spread::before {
   content: '';
   position: absolute;
   top: -7px;
-  right: 11px;
+  right: 17px;
   border: 8px solid transparent;
   border-bottom-color: rgb(56, 57, 58);
 }
@@ -114,6 +120,7 @@ export default {
   position: absolute;
   top: -1px;
   left: 10px;
+
   font-size: 22px;
 }
 

@@ -1,12 +1,12 @@
 <template>
 <div id="main-tab-bar">
   <tab-bar>
-    <tab-bar-item link="/chat">
+    <tab-bar-item link="/wechat">
       <template v-slot:icon><i class="iconfont icon-liaotian"></i></template>
       <template v-slot:icon-active><i class="iconfont icon-liaotian1"></i></template>
       <template v-slot:text>微信</template>
     </tab-bar-item>
-    <tab-bar-item link="/friend">
+    <tab-bar-item link="/friend">{{getNum}}
       <template v-slot:icon><i class="iconfont icon-mail-list big"></i></template>
       <template v-slot:icon-active><i class="iconfont icon-tongxunlu big"></i></template>
       <template v-slot:text>通讯录</template>
@@ -31,6 +31,11 @@ import TabBarItem from 'components/common/tabbar/TabBarItem'
 
 export default {
   name: 'MainTabBar',
+  computed: {
+    getNum() {
+      return this.$store.state.userData.request.length
+    }
+  },
   components: {
     TabBar,
     TabBarItem
@@ -45,8 +50,8 @@ export default {
   left: 0;
   width: 100vw;
   height: 59px;
-  border-top: 1px solid #eee;
-  background-color: rgb(248, 248, 246);
+  border-top: 1px solid #ccc;
+  background-color: #f7f7f7;
 }
 
 i {

@@ -15,10 +15,12 @@
     methods: {
       show(msg) {
         if(msg) this.msg = msg;
-        this.isShow = true
-      },
-      hidden() {
-        this.isShow = false
+        this.isShow = true;
+
+        // 2秒后关闭提示框
+        setTimeout(() => {
+          this.isShow = false
+        }, 1500);
       }
     }
   }
