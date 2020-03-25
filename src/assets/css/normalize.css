@@ -179,6 +179,7 @@ sup {
   top: -0.5em;
 }
 
+input,
 textarea,
 button {
   border: 0;

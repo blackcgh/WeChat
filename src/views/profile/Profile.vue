@@ -8,7 +8,7 @@
       <ul @click="reject">
         <!-- 用户 -->
         <li class="info profile-feature" @click.stop="infoClick">
-          <div class="avatar"><img src="" alt=""></div>
+          <div class="avatar"><img :src="$store.state.userData.avatar" alt="加载失败"></div>
           <div class="user">{{$store.state.userData.username}}</div>
         </li>
 
@@ -151,6 +151,11 @@
     width: 64px !important;
     height: 64px;
     background-color: skyblue;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
   }
 
   .user {

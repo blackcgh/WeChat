@@ -6,17 +6,19 @@
     <!-- 聊天队列 -->
     <div class="chat-list" v-if="$store.state.chating.length">
       <ul @click="goChat">
-        <li v-for="(item,index) of $store.state.chating" :key="item['_id']" :data-index="index">
+        <li v-for="item of $store.state.chating"
+            :key="item.chat['_id']"
+            :data-index="item.index">
           <!-- 头像 -->
-          <div class="fl wechat-avatar"><img src="" alt=""></div>
+          <div class="fl wechat-avatar"><img :src="getAvatar(item.index)" alt="加载失败"></div>
           <!-- 接收人 -->
           <div class="fl wechat-user">
-            {{item.receiveOne}}
+            {{item.chat.receiveOne}}
             <!-- 内容 -->
-            <p class="wechat-content">{{item.content}}</p>
+            <p class="wechat-content">{{item.chat.content}}</p>
           </div>
           <!-- 时间 -->
-          <span class="wechat-time">{{item.createTime | format}}</span>
+          <span class="wechat-time">{{item.chat.createTime | format}}</span>
         </li>
       </ul>
     </div>
@@ -34,6 +36,14 @@
     components: {
       NavBar
     },
+    computed: {
+      getAvatar() {
+        return function(index) {
+          const friend = this.$store.state.userData.friend[index];
+          if(friend && friend.avatar) return friend.avatar
+        }
+      }
+    },
     methods: {
       // 去往聊天页面
       goChat(e) {
@@ -41,13 +51,10 @@
         while(li.tagName !== 'LI') {
           li = li.parentNode;
         }
-        const c_index = li.getAttribute('data-index');
-        const friend = this.$store.state.chating[c_index].receiveOne;
-        const f_index = this.$store.state.userData.friend.indexOf(friend);
-
+        const index = li.getAttribute('data-index');
         this.$router.push({
           path: '/chat',
-          query: { friend: this.$store.state.userData.friend[f_index] }
+          query: { index }
         })
       }
     }
@@ -67,6 +74,11 @@
     margin: 10px;
     border-radius: 3px;
     background-color: rgb(57, 74, 235);
+  }
+
+  .wechat-avatar img {
+    width: 100%;
+    height: 100%;
   }
 
   .wechat-user {

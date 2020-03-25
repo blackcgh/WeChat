@@ -10,9 +10,11 @@
       <ul>
         <!-- 信息 -->
         <li class="myavatar">
+          <!-- 上传头像 -->
+          <input type="file" id="file" accept="image/*" @change="upload">
           <div>
             <div>头像</div>
-            <div><img src="" alt=""></div>
+            <div><img :src="$store.state.userData.avatar" alt="加载失败"></div>
           </div>
         </li>
         <li>
@@ -36,6 +38,9 @@
 
 <script>
   import NavBar from 'components/common/navbar/NavBar'
+
+  import { uploadAvatar } from 'network/user'
+
   export default {
     name: 'Info',
     components: {
@@ -44,6 +49,24 @@
     methods: {
       back() {
         this.$router.back()
+      },
+      // 上传头像
+      async upload(e) {
+        const maxSize = 1024 * 1024 * 2;
+        if (e.target.files[0].size > maxSize) {
+          this.$alert('上传头像大小不能超过 2MB！', '信息提示', {
+            closeOnClickModal: true,
+            confirmButtonText: '确定'
+          })
+        } else {
+          const formData = new FormData();
+          formData.append(this.$store.state.userData['_id'], e.target.files[0]);
+          this.$loading.show('上传中...');
+          await uploadAvatar(formData);
+          this.$store.commit('upload', e.target.files[0].name);
+          this.$done.show('上传成功');
+          this.$loading.hidden()
+        }
       }
     }
   }
@@ -87,8 +110,19 @@
   }
 
   .myavatar {
+    position: relative;
     height: 84px;
     line-height: 84px;
+  }
+
+  #file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
   }
 
   .myavatar>div {
@@ -111,6 +145,11 @@
     margin-right: 35px;
     background-color: aqua;
     border-radius: 3px;
+  }
+
+  .myavatar img {
+    width: 100%;
+    height: 100%;
   }
 
   .info-user {

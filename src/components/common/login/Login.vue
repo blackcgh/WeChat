@@ -125,7 +125,7 @@
         sessionStorage.setItem('token', result.data.data.token);
         // 用于验证token是否过期
         sessionStorage.setItem('expire', new Date().getTime());
-
+        // 保存用户信息
         this.$store.commit('record', result.data.data.userData[0]);
         this.$router.replace('/welcome')
       },

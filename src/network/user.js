@@ -50,14 +50,24 @@ function add(obj, receiveOne) {
 }
 
 // 同意添加朋友
-function agree(agreeOne, requestOne) {
+function agree(agreeObj, requestObj) {
   return axios({
     method: 'POST',
     url: '/user/agree',
     data: {
-      agreeOne,
-      requestOne
+      agreeObj,
+      requestObj
     }
+  })
+}
+
+// 更改头像
+function uploadAvatar(formdata) {
+  return axios({
+    method: 'POST',
+    url: '/user/upload',
+    data: formdata,
+    headers: {'Content-Type': 'multipart/form-data'}
   })
 }
 
@@ -67,5 +77,6 @@ export {
   signOut,
   search,
   add,
-  agree
+  agree,
+  uploadAvatar
 }

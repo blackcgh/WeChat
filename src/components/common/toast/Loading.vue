@@ -18,7 +18,8 @@
         this.loading = true
       },
       hidden() {
-        this.loading = false
+        this.loading = false;
+        this.msg = '请稍后...'
       }
     }
   }

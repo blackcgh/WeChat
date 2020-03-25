@@ -6,6 +6,7 @@ Vue.use(Vuex)
 const state = {
   // 登录后保存的用户数据
   userData: {
+    '_id': '',
     username: '',
     avatar: '',
     friend: [],
@@ -20,24 +21,24 @@ const mutations = {
     state.userData = userData
   },
   // 添加朋友
-  addFriend(state, requestOne) {
-    state.userData.friend.push(requestOne)
+  addFriend(state, requestObj) {
+    state.userData.friend.push(requestObj)
   },
   // 删除某一个添加请求
   removeOne(state, index) {
     state.userData.request.splice(index, 1)
   },
   // 添加聊天者
-  add(state, chat) {
+  add(state, obj) {
     // 将当前聊天置顶
     for(let i in state.chating) {
       // 将原本聊天删除
-      if(state.chating[i].receiveOne === chat.receiveOne) {
+      if(state.chating[i].chat.receiveOne === obj.chat.receiveOne) {
         state.chating.splice(i, 1)
         break;
       }
     }
-    state.chating.unshift(chat)
+    state.chating.unshift(obj)
   },
   // 退出登录，清空用户信息
   clear(state) {
@@ -47,6 +48,10 @@ const mutations = {
       friend: [],
       request: []
     }
+  },
+  // 上传头像
+  upload(state, filename) {
+    state.userData.avatar = 'http://localhost/images/' + filename;
   }
 }
 

@@ -16,12 +16,12 @@
       <ul v-if="result.length" @click="goDetail">
         <li v-for="(item,index) of result" :key="item.username" :data-index="index">
           <!-- 头像 -->
-          <div><img src="" alt=""></div>
+          <div><img :src="item.avatar" alt=""></div>
           <!-- 用户名 -->
           <div>{{item.username}}</div>
         </li>
       </ul>
-      <div v-else class="clue">没有该用户！</div>
+      <div v-else class="clue">没有该用户（不显示已是朋友关系的用户）！</div>
     </div>
   </div>
 </template>
@@ -63,7 +63,8 @@
         this.$loading.show();
         const result = (await search(this.keyword)).data.data;
         const username = this.$store.state.userData.username;
-        const friend = this.$store.state.userData.friend;
+        let friend = this.$store.state.userData.friend;
+        friend = friend.map(el => el.friend);
         const all = [username, ...friend];
         result.forEach(el => {
           const index = all.indexOf(el.username);
@@ -152,6 +153,11 @@
     width: 292px;
     padding: 10px 0 9px;
     border-bottom: 1px solid #ddd;
+  }
+
+  .search-result li div:first-child img {
+    width: 100%;
+    height: 100%;
   }
 
   .clue {

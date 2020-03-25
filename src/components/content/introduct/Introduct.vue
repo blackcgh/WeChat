@@ -2,7 +2,7 @@
   <div id="introduct">
     <nav-bar :showBtn="false"><i class="el-icon-arrow-left" @click="back"></i></nav-bar>
     <div class="user">
-      <div class="user-avatar"><img src="" alt=""></div>
+      <div class="user-avatar"><img :src="user.avatar" alt=""></div>
       <h3>{{user.username}}</h3>
     </div>
     <div class="sign">
@@ -64,6 +64,11 @@
     margin-right: 15px;
     background-color: blue;
     border-radius: 3px;
+  }
+
+  .user-avatar img {
+    width: 100%;
+    height: 100%;
   }
 
   .user h3 {

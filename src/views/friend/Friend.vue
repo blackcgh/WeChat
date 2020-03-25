@@ -48,11 +48,11 @@
     <div class="friend-list">
       <h3>朋友列表</h3>
       <ul v-if="$store.state.userData.friend.length" @click="goChat">
-        <li v-for="(item,index) of $store.state.userData.friend" :key="item" :data-index="index">
+        <li v-for="(item,index) of $store.state.userData.friend" :key="item.friend" :data-index="index">
           <!-- 头像 -->
-          <div><img src="" alt=""></div>
+          <div><img :src="item.avatar" alt=""></div>
           <!-- 用户名 -->
-          <div>{{item}}</div>
+          <div>{{item.friend}}</div>
         </li>
       </ul>
       <div class="none" v-else>你还没有朋友呢,<a href="javascript:;" @click="goSearch">
@@ -91,9 +91,13 @@
       // 去往聊天页面
       goChat(e) {
         const index = e.target.parentNode.getAttribute('data-index');
+        console.log(index);
+        console.log(this.$store.state.userData.friend[index]);
+
+
         this.$router.push({
           path: '/chat',
-          query: { friend: this.$store.state.userData.friend[index] }
+          query: { index }
         })
       }
     }
@@ -130,6 +134,11 @@
     width: calc(100vw - 65px);
     padding: 10px 0 9px;
     border-bottom: 1px solid #ddd;
+  }
+
+  li div:first-of-type img {
+    width: 100%;
+    height: 100%;
   }
 
   .friend-list h3 {

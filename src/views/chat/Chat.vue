@@ -2,7 +2,7 @@
   <div id="chat">
     <!-- 导航栏 -->
     <nav-bar :showBtn="false">
-      <i class="el-icon-arrow-left" @click="back"></i>{{$route.query.friend}}
+      <i class="el-icon-arrow-left" @click="back"></i>{{getReceiveOne.friend}}
       <!-- 设置 -->
       <template v-slot:send>
         <div class="fr chat-set" @click="set">. . .</div>
@@ -21,9 +21,11 @@
             <!-- 朋友发送 -->
             <div v-if="getShow(index)">
               <!-- 左头像 -->
-              <div class="fl chat-avatar"><img src="" alt=""></div>
+              <div class="fl chat-avatar">
+                <img :src="getReceiveOne.avatar" alt="加载失败">
+              </div>
               <!-- 左用户名 -->
-              <div class="fl chat-user">{{item.receiveOne}}</div>
+              <!-- <div class="fl chat-user">{{item.receiveOne}}</div> -->
               <!-- 内容框 -->
               <div class="fl content-l">{{item.content}}</div>
             </div>
@@ -31,7 +33,9 @@
             <!-- 我发送 -->
             <div v-else>
               <!-- 右头像 -->
-              <div class="fr chat-avatar"><img src="" alt=""></div>
+              <div class="fr chat-avatar">
+                <img :src="$store.state.userData.avatar" alt="加载失败">
+              </div>
               <!-- 右用户名 -->
               <!-- <div class="fr chat-user tr">我</div> -->
               <!-- 内容框 -->
@@ -66,7 +70,7 @@
         // 聊天内容格式
         chat: {
           sendOne: this.$store.state.userData.username,
-          receiveOne: this.$route.query.friend,
+          receiveOne: this.$store.state.userData.friend[this.$route.query.index].friend
         },
         content: ''
       }
@@ -77,6 +81,10 @@
         return (index) => {
           return this.list[index].sendOne !== this.chat.sendOne
         }
+      },
+      // 获取朋友
+      getReceiveOne() {
+        return this.$store.state.userData.friend[this.$route.query.index]
       }
     },
     watch: {
@@ -109,16 +117,17 @@
         this.chat.content = this.content;
         this.list.push(this.chat);
         this.content = '';
-        this.$store.commit('add', this.chat);
+        this.$store.commit('add', {
+          chat: this.chat,
+          index: this.$route.query.index
+        });
         await newChat(this.chat);
       },
     },
     // 进入聊天页面时请求聊天记录
     async created() {
-      const me = this.$store.state.userData.username;
-      const other = this.$route.query.friend;
       this.$loading.show();
-      this.list = (await getList(me, other)).data.data;
+      this.list = (await getList(this.chat.sendOne, this.chat.receiveOne)).data.data;
       this.$loading.hidden();
     }
   }
@@ -157,6 +166,11 @@
     background-color: rgb(57, 74, 235);
   }
 
+  .chat-avatar img {
+    width: 100%;
+    height: 100%;
+  }
+
   .chat-user {
     width: calc(100vw - 60px);
     padding: 12px 0 6px;
@@ -166,6 +180,7 @@
   .content-l {
     position: relative;
     padding: 10px;
+    margin-top: 12px;
     background-color: #fff;
     border-radius: 3px;
   }

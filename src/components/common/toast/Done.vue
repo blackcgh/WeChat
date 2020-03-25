@@ -19,7 +19,8 @@
 
         // 2秒后关闭提示框
         setTimeout(() => {
-          this.isShow = false
+          this.isShow = false;
+          this.msg = '已发送'
         }, 1500);
       }
     }

@@ -1,12 +1,12 @@
 import axios from './axios'
 
-function getList(me, other) {
+function getList(sendOne, receiveOne) {
   return axios({
     method: 'GET',
     url: '/chat/list',
     params: {
-      me,
-      other
+      sendOne,
+      receiveOne
     }
   })
 }

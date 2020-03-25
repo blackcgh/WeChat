@@ -10,7 +10,7 @@
     <h4>请求列表</h4>
     <ul v-if="request.length">
       <li v-for="(item,index) of request" :key="item.sendOne">
-        <div class="req-avatar"></div>
+        <div class="req-avatar"><img :src="item.avatar" alt="加载失败"></div>
         <div class="req-user">
           <b>{{item.sendOne}}</b>
           <p>{{item.introduction}}</p>
@@ -53,12 +53,18 @@
         if (this.agree.length < 3) {
           this.$loading.show();
           // 同意方
-          const agreeOne = this.$store.state.userData.username;
+          const agreeObj = {}
+          agreeObj.friend = this.$store.state.userData.username;
+          agreeObj.avatar = this.$store.state.userData.avatar;
+
           // 请求方
-          const requestOne = this.request[index].sendOne;
-          await agree(agreeOne, requestOne);
+          const requestObj = {}
+          requestObj.friend = this.request[index].sendOne;
+          requestObj.avatar = this.request[index].avatar;
+
+          await agree(agreeObj, requestObj);
           this.agree = '已同意';
-          this.$store.commit('addFriend', requestOne);
+          this.$store.commit('addFriend', requestObj);
           this.$store.commit('removeOne', index);
           this.$loading.hidden();
         }
@@ -105,6 +111,11 @@
     margin: 10px;
     background-color: pink;
     border-radius: 3px;
+  }
+
+  .req-avatar img {
+    width: 100%;
+    height: 100%;
   }
 
   .req-user {
