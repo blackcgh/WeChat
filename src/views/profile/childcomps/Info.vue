@@ -7,11 +7,11 @@
 
     <!-- 功能 -->
     <div>
-      <ul>
+      <ul @click="reject">
         <!-- 信息 -->
         <li class="myavatar">
           <!-- 上传头像 -->
-          <input type="file" id="file" accept="image/*" @change="upload">
+          <input type="file" id="file" accept="image/*" @change.stop="upload">
           <div>
             <div>头像</div>
             <div><img :src="$store.state.userData.avatar" alt="加载失败"></div>
@@ -50,6 +50,12 @@
       back() {
         this.$router.back()
       },
+      reject() {
+        this.$alert('暂时不支持此功能', '信息提示', {
+            closeOnClickModal: true,
+            confirmButtonText: '确定'
+          })
+      },
       // 上传头像
       async upload(e) {
         const maxSize = 1024 * 1024 * 2;
@@ -61,10 +67,10 @@
         } else {
           const formData = new FormData();
           formData.append(this.$store.state.userData['_id'], e.target.files[0]);
-          this.$loading.show('上传中...');
+          this.$loading.show('正在上传头像');
           await uploadAvatar(formData);
-          this.$store.commit('upload', e.target.files[0].name);
-          this.$done.show('上传成功');
+          this.$store.commit('upload');
+          this.$done.show('头像已上传');
           this.$loading.hidden()
         }
       }

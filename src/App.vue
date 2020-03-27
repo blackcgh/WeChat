@@ -5,16 +5,15 @@
 </template>
 
 <script>
-export default {
-  name: 'App',
-  computed: {
-    getTime() {
-      return +new Date()
+  export default {
+    name: 'App',
+    computed: {
+      getTime() {
+        return +new Date()
+      }
     }
   }
-}
 </script>
 
 <style>
-
 </style>

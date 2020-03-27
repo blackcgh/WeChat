@@ -24,7 +24,7 @@
       </el-form-item>
 
       <!-- 按钮 -->
-      <el-form-item>
+      <el-form-item class="el-btn">
         <el-button
           class="btn"
           :class="{active: getCurrent}"
@@ -35,7 +35,7 @@
     </el-form>
 
     <!-- 前往登录页面 -->
-    <div class="go-login" @click="goLogin">已有账号？去登录 >></div>
+    <div class="go" @click="goLogin">已有账号？去登录 >></div>
   </div>
 </template>
 
@@ -105,73 +105,16 @@
 
 <style>
   #register {
-    width: 100vw;
-    height: 100vh;
-    padding: 10px;
+    padding: .133333rem;
     background-color: #fff;
     box-sizing: border-box;
   }
 
-  .desc {
-    padding: 50px 0;
-    font-size: 30px;
-  }
-
   #register label {
-    font-size: 18px;
+    font-size: .5rem;
   }
 
-  .el-form-item {
-    border-bottom: 1px solid #ddd;
-  }
-
-  .second label {
-    padding-right: 28px;
-  }
-
-  .el-input {
-    width: 75%;
-    border: 0;
-    font-size: 18px;
-  }
-
-  .el-form-item .el-input input {
-    border: 0;
-  }
-
-  .btn {
-    width: 99%;
-    font-size: 18px;
-    border: 0;
-    background-color: #eee;
-    color: #999;
-  }
-
-  .active {
-    background-color: rgb(14, 212, 14) !important;
-    color: #fff !important;
-  }
-
-  .el-message-box {
-    width: 350px;
-  }
-
-  .el-icon-close {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-  }
-
-  .el-form-item__label::before {
-    content: '';
-  }
-
-  .go-login {
-    margin: 30px 5px 0 0;
-    text-align: right;
-    font-size: 14px;
-    color: #858282;
-    text-decoration: underline;
+  input[type=password] {
+    padding-left: .8rem !important;
   }
 </style>

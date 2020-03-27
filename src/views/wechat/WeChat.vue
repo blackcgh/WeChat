@@ -24,7 +24,7 @@
     </div>
 
     <!-- 提示信息 -->
-    <div class="wechat-tip" v-else>先去通讯录页面，与朋友聊天后，该页面才会显示聊天信息</div>
+    <div class="wechat-tip" v-else>你还没有与任何朋友聊过天~</div>
   </div>
 </template>
 

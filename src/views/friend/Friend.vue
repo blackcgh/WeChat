@@ -91,10 +91,6 @@
       // 去往聊天页面
       goChat(e) {
         const index = e.target.parentNode.getAttribute('data-index');
-        console.log(index);
-        console.log(this.$store.state.userData.friend[index]);
-
-
         this.$router.push({
           path: '/chat',
           query: { index }

@@ -45,10 +45,10 @@ export default {
 
 <style scoped>
 #main-tab-bar {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100vw;
+  width: 10rem;
   height: 59px;
   border-top: 1px solid #ccc;
   background-color: #f7f7f7;

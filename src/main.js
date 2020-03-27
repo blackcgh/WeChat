@@ -5,6 +5,7 @@ import store from './store'
 
 import './assets/css/base.css'
 import './assets/js/iconfont'
+import './assets/js/flexible'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

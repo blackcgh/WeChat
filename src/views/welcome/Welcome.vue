@@ -1,6 +1,6 @@
 <template>
   <div id="welcome">
-    <keep-alive exclude="WeChat,Chat,Search">
+    <keep-alive exclude="Wechat,Chat,Search">
       <router-view />
     </keep-alive>
     <main-tab-bar></main-tab-bar>
@@ -21,8 +21,9 @@
 <style scoped>
   #welcome {
     height: calc(100vh - 60px);
-    background-color: #ededed;
+    background-color: #ededed
+    ;
     overflow: scroll;
-    font-size: 16px;
+    font-size: .213333rem;
   }
 </style>

@@ -15,8 +15,9 @@
           <b>{{item.sendOne}}</b>
           <p>{{item.introduction}}</p>
         </div>
-        <div class="agree-btn" :class="{agreed:agree.length>2}" @click="agreeClick(index)">
-          {{agree}}
+        <div class="agree-btn"
+             :class="{agreed:agree.length>2}"
+              @click="agreeClick(index,$event)">{{agree}}
         </div>
       </li>
     </ul>
@@ -49,7 +50,7 @@
         this.$router.push('/search')
       },
       // 同意添加朋友
-      async agreeClick(index) {
+      async agreeClick(index, e) {
         if (this.agree.length < 3) {
           this.$loading.show();
           // 同意方
@@ -63,7 +64,7 @@
           requestObj.avatar = this.request[index].avatar;
 
           await agree(agreeObj, requestObj);
-          this.agree = '已同意';
+          e.target.innerText = '已同意';
           this.$store.commit('addFriend', requestObj);
           this.$store.commit('removeOne', index);
           this.$loading.hidden();

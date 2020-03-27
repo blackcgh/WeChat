@@ -30,15 +30,19 @@ const mutations = {
   },
   // 添加聊天者
   add(state, obj) {
-    // 将当前聊天置顶
-    for(let i in state.chating) {
-      // 将原本聊天删除
-      if(state.chating[i].chat.receiveOne === obj.chat.receiveOne) {
-        state.chating.splice(i, 1)
-        break;
+    if (obj instanceof Array) {
+      state.chating.push(...obj)
+    } else {
+      // 将当前聊天置顶
+      for (let i in state.chating) {
+        // 将原本聊天删除
+        if (state.chating[i].index == obj.index) {
+          state.chating.splice(i, 1)
+          break;
+        }
       }
+      state.chating.unshift(obj)
     }
-    state.chating.unshift(obj)
   },
   // 退出登录，清空用户信息
   clear(state) {
@@ -47,11 +51,13 @@ const mutations = {
       avatar: '',
       friend: [],
       request: []
-    }
+    },
+    state.chating = []
   },
   // 上传头像
-  upload(state, filename) {
-    state.userData.avatar = 'http://localhost/images/' + filename;
+  upload(state) {
+    const r = Math.random().toString().substr(2, 4);
+    state.userData.avatar = 'http://localhost/images/' + state.userData['_id'] + '?t=' + r;
   }
 }
 

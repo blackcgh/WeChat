@@ -25,7 +25,7 @@
       </el-form-item>
 
       <!-- 按钮 -->
-      <el-form-item>
+      <el-form-item class="el-btn">
         <el-button
           class="btn"
           :class="{active: getCurrent}"
@@ -40,7 +40,7 @@
     </el-form>
 
     <!-- 前往注册页面 -->
-    <div class="go-register" @click="goRegister">还没有账号？去注册 >></div>
+    <div class="go" @click="goRegister">还没有账号？去注册 >></div>
 
     <!-- 返回上一步 -->
     <i class="el-icon-close" v-show="isShow" @click="back"></i>
@@ -127,6 +127,19 @@
         sessionStorage.setItem('expire', new Date().getTime());
         // 保存用户信息
         this.$store.commit('record', result.data.data.userData[0]);
+        // 添加聊天记录
+        const chatArr = [];
+        const friend = result.data.data.userData[0].friend;
+        for(let i in friend) {
+          if(friend[i].chat) {
+            chatArr.push({
+              chat: friend[i].chat,
+              index: i
+            })
+          }
+        }
+
+        this.$store.commit('add', chatArr);
         this.$router.replace('/welcome')
       },
 
@@ -140,43 +153,52 @@
 
 <style>
   #login {
-    width: 100vw;
-    height: 100vh;
-    padding: 10px;
+    position: relative;
+    padding: .133333rem;
     background-color: #fff;
     box-sizing: border-box;
   }
 
   .desc {
-    padding: 50px 0;
-    font-size: 30px;
+    padding: 1rem 0;
+    font-size: .7rem;
+    font-weight: 700;
   }
 
   #login label {
-    font-size: 18px;
+    font-size: .5rem;
   }
 
   .el-form-item {
-    border-bottom: 1px solid #ddd;
+    border-bottom: .013333rem solid #ddd;
   }
 
   .second label {
-    padding-right: 28px;
+    padding-right: .373333rem;
   }
 
   .el-input {
-    width: 75%;
+    width: 7.8rem;
     border: 0;
-    font-size: 18px;
+    font-size: .5rem;
   }
 
-  .el-form-item .el-input input {
+  .el-form-item input {
+    padding-right: 0 !important;
+    border: 0;
+  }
+
+  .el-form-item__content {
+    padding: .013333rem;
+  }
+
+  .el-btn {
     border: 0;
   }
 
   .btn {
-    width: 99%;
-    font-size: 18px;
+    width: 100%;
+    font-size: .5rem;
     border: 0;
     background-color: #eee;
     color: #999;
@@ -188,21 +210,22 @@
   }
 
   .el-message-box {
-    width: 350px;
+    width: 4.666667rem;
   }
 
   .el-icon-close {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
+    top: .133333rem;
+    left: .133333rem;
+    font-size: .6rem;
   }
 
-  .go-register {
-    margin: 30px 5px 0 0;
+  .go {
+    margin: .4rem .066667rem 0 0;
     text-align: right;
-    font-size: 14px;
+    font-size: .186667rem;
     color: #858282;
     text-decoration: underline;
+    cursor: pointer;
   }
 </style>
