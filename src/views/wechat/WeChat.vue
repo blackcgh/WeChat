@@ -64,28 +64,38 @@
 <style scoped>
   li {
     position: relative;
-    height: 68px;
+    height: 1.813333rem;
+    padding: .266667rem;
+    padding-bottom: 0;
     background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  li:hover {
+    background-color: #eeeded;
   }
 
   .wechat-avatar {
-    width: 48px;
-    height: 48px;
-    margin: 10px;
-    border-radius: 3px;
-    background-color: rgb(57, 74, 235);
+    width: 1.28rem;
+    height: 1.28rem;
+    margin-right: .266667rem;
+    border-radius: .08rem;
   }
 
   .wechat-avatar img {
     width: 100%;
     height: 100%;
+    vertical-align: middle;
   }
 
   .wechat-user {
-    width: calc(100vw - 73px);
-    height: 43px;
-    padding: 15px 0 9px;
-    border-bottom: 1px solid #ddd;
+    width: calc(10rem - 2.306667rem);;
+    height: 100%;
+    padding-top: .1rem;
+    border-bottom: .026667rem solid #ddd;
+    font-weight: 700;
+    font-size: .48rem;
+    box-sizing: border-box;
   }
 
   li:last-child .wechat-user {
@@ -93,24 +103,24 @@
   }
 
   .wechat-content {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #969696;
+    margin-top: .266667rem;
+    font-size: .373333rem;
+    color: #b7b7b7;
   }
 
   .wechat-time {
     position: absolute;
-    top: 15px;
-    right: 10px;
-    font-size: 14px;
-    color: #ccc;
+    top: .32rem;
+    right: .533333rem;
+    font-size: .373333rem;
+    color: #b7b7b7;
   }
 
   .wechat-tip {
-    margin-top: 10px;
+    margin-top: .266667rem;
     text-align: center;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: .373333rem;
+    line-height: .426667rem;
     color: #ccc
   }
 </style>

@@ -41,10 +41,14 @@ export default {
 
 .icon,
 .icon-active {
-  width: 36px;
-  height: 36px;
-  margin: 3px auto;
-  line-height: 36px;
+  width: .96rem;
+  height: .96rem;
+  margin: .08rem auto;
+  line-height: .96rem;
+}
+
+i {
+  font-size: .746667rem;
 }
 
 .icon-active {
@@ -52,18 +56,22 @@ export default {
 }
 
 .active {
-  background-color: #fff !important;
+  /* background-color: #fff !important; */
   color: rgb(38, 216, 38) !important;
 }
 
 span {
   position: absolute;
-  top: 5px;
-  right: 25px;
-  padding: 6px;
+  top: .133333rem;
+  right: .666667rem;
+  padding: .16rem;
   background-color: #f00;
   color: #fff;
-  line-height: 10px;
+  line-height: .14rem;
   border-radius: 50%;
+}
+
+.text {
+  font-size: .32rem;
 }
 </style>

@@ -3,41 +3,29 @@
     <!-- 内容 -->
     <div class="desc">微信登录</div>
 
-    <el-form :model="formData">
-      <!-- 用户名输入框 -->
-      <el-form-item label="用户名">
-        <el-input
-          :disabled="value"
-          v-model="formData.username"
-          placeholder="请填写用户名"
-          clearable
-          key="username"></el-input>
-      </el-form-item>
+    <!-- 用户名输入框 -->
+    <div class="user">
+      <label>用户名</label>
+      <input :disabled="value"
+             v-model="formData.username"
+             placeholder="请填写用户名"
+             clearable key="username" />
+    </div>
 
-      <!-- 密码输入框 -->
-      <el-form-item class="form-item second" v-show="isShow" label="密码">
-        <el-input
-          type="password"
-          v-model="formData.password"
-          placeholder="请填写微信密码"
-          clearable
-          key="password"></el-input>
-      </el-form-item>
+    <!-- 密码输入框 -->
+    <div class="pwd" v-show="isShow">
+      <label>密码</label>
+      <input type="password"
+             v-model="formData.password"
+             placeholder="请填写微信密码"
+             clearable
+             key="password" />
+    </div>
 
-      <!-- 按钮 -->
-      <el-form-item class="el-btn">
-        <el-button
-          class="btn"
-          :class="{active: getCurrent}"
-          v-if="!isShow"
-          @click="next"
-          key="next">下一步
-        </el-button>
-        <el-button class="btn" :class="{active: getCurrent}" v-else key="login" @click="login">
-          登录
-        </el-button>
-      </el-form-item>
-    </el-form>
+    <!-- 按钮 -->
+    <button :class="{active: getCurrent}" v-if="!isShow" @click="next" key="next">下一步
+    </button>
+    <button :class="{active: getCurrent}" v-else @click="login" key="login">登录</button>
 
     <!-- 前往注册页面 -->
     <div class="go" @click="goRegister">还没有账号？去注册 >></div>
@@ -48,7 +36,9 @@
 </template>
 
 <script>
-  import { login } from 'network/user'
+  import {
+    login
+  } from 'network/user'
 
   export default {
     name: 'Login',
@@ -88,7 +78,7 @@
             this.$loading.hidden();
             this.isShow = true;
             this.value = true;
-          }, 1000)
+          }, 600)
         }
       },
 
@@ -114,7 +104,7 @@
         this.$loading.show();
         const result = await login(this.formData.username, this.formData.password);
         this.$loading.hidden();
-        if(result.data.errno !== 0) {
+        if (result.data.errno !== 0) {
           this.$alert('用户名或密码错误！', '登录失败', {
             closeOnClickModal: true,
             confirmButtonText: '确定'
@@ -130,8 +120,8 @@
         // 添加聊天记录
         const chatArr = [];
         const friend = result.data.data.userData[0].friend;
-        for(let i in friend) {
-          if(friend[i].chat) {
+        for (let i in friend) {
+          if (friend[i].chat) {
             chatArr.push({
               chat: friend[i].chat,
               index: i
@@ -151,12 +141,10 @@
   }
 </script>
 
-<style>
+<style scoped>
   #login {
     position: relative;
     padding: .133333rem;
-    background-color: #fff;
-    box-sizing: border-box;
   }
 
   .desc {
@@ -165,52 +153,44 @@
     font-weight: 700;
   }
 
-  #login label {
+  label {
+    margin-right: .8rem;
     font-size: .5rem;
   }
 
-  .el-form-item {
+  .user,
+  .pwd {
+    display: flex;
+    padding: 0 0 .333333rem .133333rem;
+    margin-bottom: .333333rem;
     border-bottom: .013333rem solid #ddd;
-  }
-
-  .second label {
-    padding-right: .373333rem;
-  }
-
-  .el-input {
-    width: 7.8rem;
-    border: 0;
     font-size: .5rem;
   }
 
-  .el-form-item input {
-    padding-right: 0 !important;
-    border: 0;
+  input {
+    flex: 1;
+    color: #606266;
   }
 
-  .el-form-item__content {
-    padding: .013333rem;
+  input[type=password] {
+    padding-left: .533333rem;
   }
 
-  .el-btn {
-    border: 0;
-  }
-
-  .btn {
+  button {
     width: 100%;
-    font-size: .5rem;
-    border: 0;
+    height: 1rem;
+    margin-top: .266667rem;
     background-color: #eee;
+    font-size: .5rem;
+    line-height: 1rem;
+    text-align: center;
     color: #999;
+    border-radius: .04rem;
   }
 
   .active {
     background-color: rgb(14, 212, 14) !important;
     color: #fff !important;
-  }
-
-  .el-message-box {
-    width: 4.666667rem;
   }
 
   .el-icon-close {
@@ -223,7 +203,7 @@
   .go {
     margin: .4rem .066667rem 0 0;
     text-align: right;
-    font-size: .186667rem;
+    font-size: .3rem;
     color: #858282;
     text-decoration: underline;
     cursor: pointer;

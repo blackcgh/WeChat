@@ -49,16 +49,12 @@ export default {
   bottom: 0;
   left: 0;
   width: 10rem;
-  height: 59px;
-  border-top: 1px solid #ccc;
+  height: 1.586667rem;
+  border-top: .013333rem solid #ccc;
   background-color: #f7f7f7;
 }
 
-i {
-  font-size: 28px !important;
-}
-
 .big {
-  font-size: 34px !important;
+  font-size: .866667rem;
 }
 </style>

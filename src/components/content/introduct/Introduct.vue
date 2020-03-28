@@ -45,25 +45,25 @@
 <style scoped>
   #introduct {
     position: fixed;
-    width: 100vw;
+    width: 10rem;
     height: 100vh;
     background-color: rgb(248, 248, 246);
     z-index: 1;
+    overflow: auto;
   }
 
   .user {
-    height: 64px;
-    padding: 10px;
+    height: 1.706667rem;
+    padding: .266667rem;
     background-color: #fff;
   }
 
   .user-avatar {
     float: left;
-    width: 64px;
-    height: 64px;
-    margin-right: 15px;
-    background-color: blue;
-    border-radius: 3px;
+    width: 1.706667rem;
+    height: 1.706667rem;
+    margin-right: .4rem;
+    border-radius: .2rem;
   }
 
   .user-avatar img {
@@ -72,14 +72,14 @@
   }
 
   .user h3 {
-    font-size: 18px;
+    font-size: .48rem;
     font-weight: 700;
-    line-height: 64px;
+    line-height: 1.706667rem;
   }
 
   .sign {
-    margin: 10px 0;
-    padding: 10px;
+    margin: .266667rem 0;
+    padding: .266667rem;
     background-color: #fff;
 
   }
@@ -89,18 +89,20 @@
   }
 
   .sign p {
-    padding: 10px 0;
-    font-size: 18px;
+    padding: .266667rem 0;
+    font-size: .48rem;
     color: #aaa;
     text-indent: 2em;
   }
 
   .add-friend {
-    height: 50px;
+    height: 1.333333rem;
     background-color: #fff;
-    line-height: 50px;
+    line-height: 1.38rem;
+    font-size: .48rem;
     font-weight: 700;
     color: rgb(6, 19, 141);
     text-align: center;
+    cursor: pointer;
   }
 </style>

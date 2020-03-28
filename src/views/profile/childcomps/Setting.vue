@@ -83,14 +83,15 @@
 <style scoped>
   #setting {
     position: fixed;
-    width: 100vw;
+    width: 10rem;
     height: 100vh;
     background-color: #ededed;
     z-index: 1;
+    overflow: auto;
   }
 
   .set-feature {
-    margin-bottom: 10px;
+    margin-bottom: .266667rem;
   }
 
   .set-feature div {
@@ -98,25 +99,29 @@
   }
 
   li {
-    height: 46px;
+    height: 1.226667rem;
     background-color: #fff;
-    line-height: 26px;
+    line-height: .693333rem;
+  }
+
+  li:hover {
+    background-color: #eeeded;
   }
 
   li div {
     position: relative;
-    height: 26px;
-    padding: 10px 0 9px 15px;
-    border-bottom: 1px solid #ddd;
+    height: .693333rem;
+    padding: .266667rem 0 .24rem .4rem;
+    border-bottom: .026667rem solid #ddd;
   }
 
   li div::after {
     content: '>';
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: .266667rem;
+    right: .266667rem;
     color: rgb(212, 212, 212);
-    font-size: 22px;
+    font-size: .586667rem;
     font-weight: normal;
   }
 

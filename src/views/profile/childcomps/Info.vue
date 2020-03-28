@@ -50,11 +50,13 @@
       back() {
         this.$router.back()
       },
-      reject() {
-        this.$alert('暂时不支持此功能', '信息提示', {
+      reject(e) {
+        if(e.target.tagName !== 'INPUT') {
+          this.$alert('暂时不支持此功能', '信息提示', {
             closeOnClickModal: true,
             confirmButtonText: '确定'
           })
+        }
       },
       // 上传头像
       async upload(e) {
@@ -81,44 +83,49 @@
 <style scoped>
   #information {
     position: fixed;
-    width: 100vw;
+    width: 10rem;
     height: 100vh;
     background-color: #ededed;
     z-index: 1;
+    overflow: auto;
   }
 
   .info-feature {
-    margin-bottom: 10px;
+    margin-bottom: .266667rem;
     border-bottom: 0;
   }
 
   li {
-    height: 46px;
-    border-bottom: 1px solid #ddd;
+    height: 1.226667rem;
+    border-bottom: .026667rem solid #ddd;
     background-color: #fff;
-    line-height: 26px;
+    line-height: .693333rem;
+  }
+
+  li:hover {
+    background-color: #eeeded;
   }
 
   li div {
     position: relative;
-    height: 26px;
-    padding: 10px 0 9px 15px;
+    height: .693333rem;
+    padding: .266667rem 0 .24rem .4rem;
   }
 
   li>div::after {
     content: '>';
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: .266667rem;
+    right: .266667rem;
     color: rgb(212, 212, 212);
-    font-size: 22px;
+    font-size: .586667rem;
     font-weight: normal;
   }
 
   .myavatar {
     position: relative;
-    height: 84px;
-    line-height: 84px;
+    height: 2.24rem;
+    line-height: 2.24rem;
   }
 
   #file {
@@ -132,25 +139,24 @@
   }
 
   .myavatar>div {
-    height: 66px;
-    line-height: 66px;
+    height: 1.76rem;
+    line-height: 1.76rem;
   }
 
   .myavatar div div:first-child {
     float: left;
-    height: 65px;
+    height: 1.733333rem;
     padding: 0;
-    line-height: 65px;
+    line-height: 1.733333rem;
   }
 
   .myavatar div div:last-child {
     float: right;
-    width: 64px;
-    height: 64px;
+    width: 1.706667rem;
+    height: 1.706667rem;
     padding: 0;
-    margin-right: 35px;
-    background-color: aqua;
-    border-radius: 3px;
+    margin-right: .933333rem;
+    border-radius: .08rem;
   }
 
   .myavatar img {
@@ -160,9 +166,9 @@
 
   .info-user {
     position: absolute;
-    top: 10px;
-    right: 35px;
-    font-size: 18px;
+    top: .266667rem;
+    right: .933333rem;
+    font-size: .48rem;
     color: #666;
   }
 </style>

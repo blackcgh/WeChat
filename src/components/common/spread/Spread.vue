@@ -73,10 +73,10 @@ export default {
 <style>
 .spread {
   position: absolute;
-  top: 48px;
-  right: 5px;
+  top: 1.28rem;
+  right: .133333rem;
   width: 0;
-  height: 50px;
+  height: 1.333333rem;
   overflow: hidden;
   opacity: 0;
   transition: all .2s;
@@ -86,9 +86,9 @@ export default {
 .spread::before {
   content: '';
   position: absolute;
-  top: -7px;
-  right: 17px;
-  border: 8px solid transparent;
+  top: -0.186667rem;
+  right: .333333rem;
+  border: .213333rem solid transparent;
   border-bottom-color: rgb(56, 57, 58);
 }
 
@@ -96,20 +96,21 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  width: 150px;
-  margin-top: 8px;
+  width: 4rem;
+  margin-top: .213333rem;
   background-color: rgb(56, 57, 58);
   color: #fff;
-  font-size: 16px;
+  font-size: .426667rem;
   text-align: center;
-  border-radius: 5px;
+  border-radius: .133333rem;
   overflow: hidden;
 }
 
 .spread li {
   position: relative;
-  height: 40px;
-  line-height: 40px;
+  height: 1.066667rem;
+  line-height: 1.066667rem;
+  cursor: pointer;
 }
 
 .spread li:hover {
@@ -118,19 +119,18 @@ export default {
 
 .spread i {
   position: absolute;
-  top: -1px;
-  left: 10px;
-
-  font-size: 22px;
+  top: -0.026667rem;
+  left: .266667rem;
+  font-size: .586667rem;
 }
 
 .click {
-  width: 150px;
-  height: 208px;
+  width: 4rem;
+  height: 5.546667rem;
   opacity: 1;
 }
 
 .el-message-box {
-  width: 350px;
+  width: 9.333333rem;
 }
 </style>

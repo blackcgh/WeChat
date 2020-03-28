@@ -98,7 +98,7 @@
 
 <style scoped>
   .profile-feature {
-    margin-bottom: 10px;
+    margin-bottom: .266667rem;
   }
 
   li.profile-feature div:last-child {
@@ -106,51 +106,54 @@
   }
 
   li {
-    height: 56px;
+    height: 1.493333rem;
     background-color: #fff;
-    line-height: 36px;
+    line-height: .96rem;
+  }
+
+  li:hover {
+    background-color: #eeeded;
   }
 
   li div {
     float: left;
-    height: 36px;
+    height: .96rem;
   }
 
   li div:first-child {
-    width: 36px;
-    margin: 10px 15px 10px 10px;
-    border-radius: 3px;
-    line-height: 36px;
+    width: .96rem;
+    margin: .266667rem;
+    margin-right: .4rem;
+    border-radius: .08rem;
+    line-height: .96rem;
     text-align: center;
-    /* background-color: rgb(57, 74, 235); */
   }
 
   li div:last-child {
     position: relative;
-    width: calc(100vw - 61px);
-    padding: 10px 0 9px;
-    border-bottom: 1px solid #ddd;
+    width: calc(10rem - 1.866667rem);
+    padding: .266667rem 0 .24rem;
+    border-bottom: .026667rem solid #ddd;
   }
 
   li div:last-child::after {
     content: '>';
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: .266667rem;
+    right: .266667rem;
     color: rgb(212, 212, 212);
-    font-size: 22px;
+    font-size: .586667rem;
     font-weight: normal;
   }
 
   .info {
-    height: 84px;
-    line-height: 84px;
+    height: 2.24rem;
+    line-height: 2.24rem;
   }
 
   .avatar {
-    width: 64px !important;
-    height: 64px;
-    background-color: skyblue;
+    width: 1.706667rem !important;
+    height: 1.706667rem;
   }
 
   .avatar img {
@@ -159,18 +162,20 @@
   }
 
   .user {
-    width: calc(100vw - 89px) !important;
-    height: 65px;
-    line-height: 65px;
-    font-size: 24px;
+    width: calc(10rem - 2.6rem) !important;
+    height: 1.733333rem;
+    line-height: 1.733333rem;
+    font-size: .64rem;
     font-weight: 700;
   }
 
   svg {
-    font-size: 22px;
+    position: relative;
+    top: .133333rem;
+    font-size: .586667rem;
   }
 
   .more {
-    font-size: 26px;
+    font-size: .693333rem;
   }
 </style>

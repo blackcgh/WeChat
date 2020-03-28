@@ -72,52 +72,54 @@
 <style scoped>
   #add-friend {
     position: fixed;
-    width: 100vw;
+    width: 10rem;
     height: 100vh;
     background-color: #fff;
+    overflow: auto;
     z-index: 1;
   }
 
   .info-submit {
-    padding: 50px 20px;
+    padding: 1.333333rem .533333rem;
   }
 
   .info-submit h2 {
-    padding-bottom: 20px;
-    font-size: 20px;
+    padding-bottom: .533333rem;
+    font-size: .533333rem;
     font-weight: 700;
     text-align: center;
   }
 
   .info-submit h4 {
-    margin-bottom: 5px;
+    margin-bottom: .133333rem;
     text-align: left;
-    font-size: 14px;
+    font-size: .373333rem;
     color: #999;
   }
 
   .info-submit textarea {
-    width: 295px;
-    height: 100px;
-    padding: 20px;
+    width: 7.866667rem;
+    height: 2.666667rem;
+    padding: .533333rem;
     border: 0;
     outline: none;
     background-color: #eee;
     color: #222;
-    border-radius: 3px;
+    border-radius: .08rem;
   }
 
   .send {
     position: absolute;
-    top: 9px;
-    right: 10px;
-    width: 60px;
-    height: 30px;
+    top: .24rem;
+    right: .266667rem;
+    width: 2.4rem;
+    height: .8rem;
     background-color: rgb(30, 177, 30);
     color: #fff;
-    line-height: 30px;
+    line-height: .8rem;
     text-align: center;
-    font-size: 16px;
-    border-radius: 3px;
+    font-size: .426667rem;
+    border-radius: .08rem;
+    cursor: pointer;
   }
 </style>

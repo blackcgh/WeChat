@@ -3,36 +3,23 @@
     <!-- 内容 -->
     <div class="desc">微信注册</div>
 
-    <el-form :model="formData">
-      <!-- 用户名输入框 -->
-      <el-form-item label="用户名">
-        <el-input
-          v-model="formData.username"
-          placeholder="请填写用户名"
-          clearable
-          key="ruser"></el-input>
-      </el-form-item>
+    <!-- 用户名输入框 -->
+    <div class="user">
+      <label>用户名</label>
+      <input v-model="formData.username" placeholder="请填写用户名" clearable key="ruser" />
+    </div>
 
-      <!-- 密码输入框 -->
-      <el-form-item class="second" label="密码">
-        <el-input
-          type="password"
-          v-model="formData.password"
-          placeholder="填写密码"
-          clearable
-          key="rpwd"></el-input>
-      </el-form-item>
+    <!-- 密码输入框 -->
+    <div class="pwd">
+      <label>密码</label>
+      <input type="password"
+             v-model="formData.password"
+             placeholder="填写密码"
+             clearable key="rpwd" />
+    </div>
 
-      <!-- 按钮 -->
-      <el-form-item class="el-btn">
-        <el-button
-          class="btn"
-          :class="{active: getCurrent}"
-          key="register"
-          @click="register">注册
-        </el-button>
-      </el-form-item>
-    </el-form>
+    <!-- 按钮 -->
+    <button :class="{active: getCurrent}" key="register" @click="register">注册</button>
 
     <!-- 前往登录页面 -->
     <div class="go" @click="goLogin">已有账号？去登录 >></div>
@@ -40,7 +27,9 @@
 </template>
 
 <script>
-  import { register } from 'network/user'
+  import {
+    register
+  } from 'network/user'
 
   export default {
     name: 'Register',
@@ -85,7 +74,7 @@
           this.$loading.show();
           const result = await register(this.formData.username, this.formData.password);
           this.$loading.hidden();
-          if(result.data.errno !== 0) {
+          if (result.data.errno !== 0) {
             this.$alert('该用户已存在！', '注册失败', {
               closeOnClickModal: true,
               confirmButtonText: '确定'
@@ -103,18 +92,64 @@
   }
 </script>
 
-<style>
+<style scoped>
   #register {
+    position: relative;
     padding: .133333rem;
-    background-color: #fff;
-    box-sizing: border-box;
   }
 
-  #register label {
+  .desc {
+    padding: 1rem 0;
+    font-size: .7rem;
+    font-weight: 700;
+  }
+
+  label {
+    margin-right: .8rem;
     font-size: .5rem;
   }
 
+  .user,
+  .pwd {
+    display: flex;
+    padding: 0 0 .333333rem .133333rem;
+    margin-bottom: .333333rem;
+    border-bottom: .013333rem solid #ddd;
+    font-size: .5rem;
+  }
+
+  input {
+    flex: 1;
+    color: #606266;
+  }
+
   input[type=password] {
-    padding-left: .8rem !important;
+    padding-left: .533333rem;
+  }
+
+  button {
+    width: 100%;
+    height: 1rem;
+    margin-top: .266667rem;
+    background-color: #eee;
+    font-size: .5rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #999;
+    border-radius: .04rem;
+  }
+
+  .active {
+    background-color: rgb(14, 212, 14) !important;
+    color: #fff !important;
+  }
+
+  .go {
+    margin: .4rem .066667rem 0 0;
+    text-align: right;
+    font-size: .3rem;
+    color: #858282;
+    text-decoration: underline;
+    cursor: pointer;
   }
 </style>

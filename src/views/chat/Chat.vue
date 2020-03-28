@@ -136,20 +136,21 @@
 <style scoped>
   #chat {
     position: fixed;
-    width: 100vw;
+    width: 10rem;
     height: 100vh;
     background-color: #ededed;
     z-index: 1;
   }
 
   .wrapper {
-    height: calc(100vh - 48px - 57px);
-    overflow: scroll;
+    width: 10rem;
+    height: calc(100vh - 1.28rem - 1.52rem);
+    overflow: auto;
   }
 
   .chat-time {
-    padding-top: 25px;
-    font-size: 12px;
+    padding-top: .666667rem;
+    font-size: .32rem;
     color: #969696;
     text-align: center;
   }
@@ -159,11 +160,10 @@
   }
 
   .chat-avatar {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    border-radius: 3px;
-    background-color: rgb(57, 74, 235);
+    width: 1.066667rem;
+    height: 1.066667rem;
+    margin: .266667rem;
+    border-radius: .08rem;
   }
 
   .chat-avatar img {
@@ -171,26 +171,20 @@
     height: 100%;
   }
 
-  .chat-user {
-    width: calc(100vw - 60px);
-    padding: 12px 0 6px;
-    font-size: 13px;
-  }
-
   .content-l {
     position: relative;
-    padding: 10px;
-    margin-top: 12px;
+    padding: .266667rem;
+    margin-top: .45rem;
     background-color: #fff;
-    border-radius: 3px;
+    border-radius: .08rem;
   }
 
   .content-l::before {
     content: '';
     position: absolute;
-    top: 13px;
-    left: -5px;
-    padding: 4px;
+    top: .28rem;
+    left: -0.08rem;
+    padding: .106667rem;
     background-color: #fff;
     transform: rotate(45deg);
 
@@ -198,61 +192,62 @@
 
   .content-r {
     position: relative;
-    padding: 10px;
-    margin-top: 12px;
+    padding: .266667rem;
+    margin-top: .45rem;
     background-color: #95ec69;
-    border-radius: 3px;
+    border-radius: .08rem;
   }
 
   .content-r::before {
     content: '';
     position: absolute;
-    top: 13px;
-    right: -5px;
-    padding: 4px;
+    top: .28rem;
+    right: -0.08rem;
+    padding: .106667rem;
     background-color: #95ec69;
     transform: rotate(45deg);
   }
 
   .editor {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
-    width: 100vw;
-    border-top: 1px solid #bbb;
+    width: 10rem;
+    border-top: .026667rem solid #bbb;
     background-color: rgb(235, 232, 232);
   }
 
   textarea {
-    width: 200px;
-    height: 36px;
-    padding-left: 10px;
-    margin: 10px 50px;
+    width: 5.333333rem;
+    height: .96rem;
+    padding-left: .266667rem;
+    margin: .266667rem 1.333333rem;
     background-color: #fff;
-    font-size: 16px;
-    line-height: 36px;
-    border-radius: 3px;
+    font-size: .426667rem;
+    line-height: .96rem;
+    border-radius: .08rem;
     vertical-align: middle;
+    resize: none;
   }
 
   button {
     position: absolute;
-    top: 14px;
-    right: 10px;
-    width: 60px;
-    height: 30px;
+    top: .373333rem;
+    right: .266667rem;
+    width: 1.6rem;
+    height: .8rem;
     background-color: rgb(30, 177, 30);
     color: #fff;
-    line-height: 30px;
+    line-height: .8rem;
     text-align: center;
-    font-size: 16px;
-    border-radius: 3px;
+    font-size: .426667rem;
+    border-radius: .08rem;
   }
 
   .chat-set {
-    margin-right: 10px;
-    font-size: 18px;
+    margin-right: .266667rem;
+    font-size: .48rem;
     font-weight: 700;
-    letter-spacing: -1px;
+    letter-spacing: -0.026667rem;
   }
 </style>

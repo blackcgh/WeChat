@@ -8,9 +8,11 @@
 }
 
 body {
+  position: relative;
   min-width: 320px;
   max-width: 750px;
   width: 10rem;
+  height: 100vh;
   margin: 0 auto;
   background-color: #fff;
 }
@@ -42,4 +44,33 @@ body {
 
 .tr {
   text-align: right;
+}
+
+/* 弹框 */
+.el-message-box {
+  width: 5.733333rem !important;
+  /* height: 1.866667rem !important; */
+  padding: 0 !important;
+}
+
+.el-message-box>div {
+  padding: .133333rem;
+}
+
+.el-message-box span {
+  font-size: .3rem
+}
+
+.el-message-box p {
+  font-size: .213333rem;
+}
+
+.el-message-box .el-button {
+  font-size: .16rem;
+  padding: .066667rem .133333rem;
+}
+
+button.el-message-box__headerbtn {
+  top: .066667rem;
+  right: .066667rem;
 }

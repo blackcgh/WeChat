@@ -107,29 +107,34 @@
 
   li {
     position: relative;
-    height: 60px;
+    height: 1.6rem;
     background-color: #fff;
-    line-height: 40px;
+    line-height: 1.066667rem;
+  }
+
+  li:hover {
+    background-color: #eeeded;
   }
 
   li div {
     float: left;
-    height: 40px;
+    height: 1.066667rem;
   }
 
   li div:first-of-type {
-    width: 40px;
-    margin: 10px 15px 10px 10px;
-    border-radius: 3px;
+    width: 1.066667rem;
+    margin: .266667rem;
+    margin-right: .4rem;
+    border-radius: .08rem;
     background-color: rgb(77, 231, 77);
-    line-height: 40px;
+    line-height: 1.066667rem;
     text-align: center;
   }
 
   li div:last-of-type {
-    width: calc(100vw - 65px);
-    padding: 10px 0 9px;
-    border-bottom: 1px solid #ddd;
+    width: calc(10rem - 1.96rem);
+    padding: .266667rem 0 .24rem;
+    border-bottom: .026667rem solid #ddd;
   }
 
   li div:first-of-type img {
@@ -138,8 +143,8 @@
   }
 
   .friend-list h3 {
-    padding: 10px;
-    font-size: 14px;
+    padding: .266667rem;
+    font-size: .373333rem;
     color: #333;
   }
 
@@ -149,14 +154,14 @@
 
   svg {
     position: relative;
-    top: 2px;
+    top: .053333rem;
     left: 0;
-    font-size:26px;
+    font-size: .693333rem;
     color: #fff;
   }
 
   .fourth svg {
-    font-size: 20px;
+    font-size: .533333rem;
   }
 
   .first div:first-child {
@@ -178,18 +183,18 @@
 
   .first span {
     position: absolute;
-    top: 20px;
-    right: 15px;
-    padding: 6px;
+    top: .533333rem;
+    right: .4rem;
+    padding: .16rem;
     background-color: #f00;
     color: #fff;
-    line-height: 10px;
+    line-height: .14rem;
     border-radius: 50%;
   }
 
   .none {
-    margin-top: 15px;
-    font-size: 14px;
+    margin-top: .4rem;
+    font-size: .373333rem;
     color: #969696;
     text-align: center;
   }

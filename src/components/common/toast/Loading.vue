@@ -39,8 +39,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 150px;
-    height: 70px;
+    width: 2.3rem;
+    height: 1rem;
+    padding: .2rem 0;
     background-color: rgba(0, 0, 0, .8);
     transform: translate(-50%, -50%);
   }
@@ -51,5 +52,14 @@
 
   .el-loading-text {
     color: #fff !important;
+  }
+
+  .el-loading-spinner .circular {
+    width: .56rem;
+    height: .56rem;
+  }
+
+  .el-loading-spinner .el-loading-text {
+    font-size: .186667rem;
   }
 </style>

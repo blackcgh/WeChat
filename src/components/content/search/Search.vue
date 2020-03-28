@@ -5,9 +5,8 @@
 
     <!-- 搜索框 -->
     <div class="search-area">
-      <el-input v-model="keyword" placeholder="输入用户名搜索" prefix-icon="el-icon-search" clearable>
-      </el-input>
-      <el-button type="primary" key="search" @click="search">搜索</el-button>
+      <input v-model="keyword" placeholder="输入用户名搜索" clearable />
+      <button key="search" @click="search">搜索</button>
     </div>
 
     <!-- 搜索结果 -->
@@ -21,7 +20,7 @@
           <div>{{item.username}}</div>
         </li>
       </ul>
-      <div v-else class="clue">没有该用户（不显示已是朋友关系的用户）！</div>
+      <div v-else class="clue">没有该用户（不显示已是朋友关系的用户）</div>
     </div>
   </div>
 </template>
@@ -87,42 +86,52 @@
   }
 </script>
 
-<style>
+<style scoped>
   #search-friend {
     position: fixed;
-    width: 100vw;
+    width: 10rem;
     height: 100vh;
-    background-color: #fff;
+    background-color: rgb(248, 248, 246);
     z-index: 1;
+    overflow: auto;
   }
 
   .nav-bar .text i {
     position: relative;
     top: 0;
     left: 0;
-    padding: 15px 10px 15px 0;
+    padding: .4rem .266667rem .4rem 0;
   }
 
   .search-area {
-    padding: 10px 0;
+    padding: .266667rem 0;
   }
 
-  #search-friend .el-input {
-    width: 75%;
-    margin: 0 8px;
-    font-size: 16px;
+  input {
+    width: 7.493333rem;
+    height: 1.2rem;
+    padding: .133333rem;
+    margin: 0 .213333rem;
+    border: 1px solid #d4d3d3;
+    font-size: .426667rem;
+    box-sizing: border-box;
+    vertical-align: middle;
   }
 
-  #search-friend .el-button {
-    width: 18%;
-    height: 40px;
+  button {
+    width: 2rem;
+    height: 1.2rem;
     padding: 0;
+    background-color: rgb(30, 177, 30);
+    color: #fff;
+    font-size: .533333rem;
+    vertical-align: middle;
   }
 
   .search-result h3 {
-    padding: 10px;
+    padding: .266667rem;
     border-bottom: 1px solid #ddd;
-    font-size: 14px;
+    font-size: .373333rem;
     color: #999;
   }
 
@@ -131,28 +140,29 @@
   }
 
   .search-result li {
-    height: 68px;
+    height: 1.813333rem;
     background-color: #fff;
-    font-size: 18px;
-    line-height: 48px;
+    font-size: .48rem;
+    line-height: 1.28rem;
   }
 
   .search-result li div {
     float: left;
-    height: 48px;
+    height: 1.28rem;
   }
 
   .search-result li div:first-child {
-    width: 48px;
-    margin: 10px 15px 10px 10px;
-    border-radius: 3px;
+    width: 1.28rem;
+    margin: .266667rem;
+    margin-right: .4rem;
+    border-radius: .08rem;
     background-color: rgb(57, 74, 235);
   }
 
   .search-result li div:last-child {
-    width: 292px;
-    padding: 10px 0 9px;
-    border-bottom: 1px solid #ddd;
+    width: calc(10rem - 1.946667rem);
+    padding: .266667rem 0 .24rem;
+    border-bottom: .026667rem solid #ddd;
   }
 
   .search-result li div:first-child img {
@@ -161,8 +171,8 @@
   }
 
   .clue {
-    margin-top: 15px;
-    font-size: 14px;
+    margin-top: .4rem;
+    font-size: .373333rem;
     color: #969696;
     text-align: center;
   }

@@ -115,7 +115,7 @@
 
 <style scoped>
   .find-feature {
-    margin-bottom: 10px;
+    margin-bottom: .266667rem;
   }
 
   .cl {
@@ -126,38 +126,42 @@
     border-bottom: 0;
   }
   li {
-    height: 46px;
+    height: 1.226667rem;
     background-color: #fff;
-    line-height: 36px;
+    line-height: .96rem;
+  }
+
+  li:hover {
+    background-color: #eeeded;
   }
 
   li div {
     float: left;
-    height: 36px;
+    height: .96rem;
   }
 
   li div:first-child {
-    width: 36px;
-    margin: 5px 15px 5px 10px;
-    border-radius: 3px;
-    line-height: 36px;
+    width: .96rem;
+    margin: .133333rem .4rem .133333rem .266667rem;
+    border-radius: .08rem;
+    line-height: .96rem;
     text-align: center;
   }
 
   li div:last-child {
     position: relative;
-    width: calc(100vw - 61px);
-    padding: 5px 0 4px;
-    border-bottom: 1px solid #ddd;
+    width: calc(10rem - 1.866667rem);
+    padding: .133333rem 0 .106667rem;
+    border-bottom: .026667rem solid #ddd;
   }
 
   li div:last-child::after {
     content: '>';
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: .266667rem;
+    right: .266667rem;
     color: rgb(212, 212, 212);
-    font-size: 22px;
+    font-size: .586667rem;
   }
 
   li:last-child div:last-child {
@@ -165,14 +169,14 @@
   }
 
   svg {
-    font-size: 20px;
+    font-size: .533333rem;
   }
 
   .more {
-    font-size: 26px;
+    font-size: .693333rem;
   }
 
   .most {
-    font-size: 32px;
+    font-size: .853333rem;
   }
 </style>

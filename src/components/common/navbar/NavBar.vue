@@ -54,34 +54,34 @@
 <style scoped>
   .nav-bar {
     position: relative;
-    width: 100vw;
-    height: 47px;
-    border-bottom: 1px solid #ddd;
+    width: 100%;
+    height: 1.253333rem;
+    border-bottom: .026667rem solid #ddd;
     background-color: #ededed;
-    font-size: 20px;
-    line-height: 48px;
+    font-size: .533333rem;
+    line-height: 1.28rem;
     text-align: center;
   }
 
   .text {
-    width: 200px;
+    width: 5.333333rem;
     height: 100%;
-    padding-left: 10px;
+    padding-left: .266667rem;
     text-align: left;
-    font-size: 18px;
+    font-size: .48rem;
     font-weight: 700;
   }
 
   .add {
     position: relative;
-    width: 50px;
+    width: 1.333333rem;
     height: 100%;
-    font-size: 24px;
+    font-size: .64rem;
   }
 
   .search {
-    width: 50px;
+    width: 1.333333rem;
     height: 100%;
-    font-size: 24px;
+    font-size: .64rem;
   }
 </style>

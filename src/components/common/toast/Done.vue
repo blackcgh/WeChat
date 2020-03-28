@@ -30,13 +30,14 @@
 <style scoped>
   #done {
     position: fixed;
-    bottom: 40px;
+    bottom: 1.066667rem;
     left: 50%;
-    width: 100px;
-    height: 30px;
+    width: 2.666667rem;
+    height: .8rem;
     background-color: rgba(0, 0, 0, .8);
-    line-height: 30px;
+    line-height: .8rem;
     text-align: center;
+    font-size: .48rem;
     color: #fff;
     transform: translateX(-50%);
     z-index: 2;

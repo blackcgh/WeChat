@@ -20,10 +20,9 @@
 
 <style scoped>
   #welcome {
-    height: calc(100vh - 60px);
-    background-color: #ededed
-    ;
-    overflow: scroll;
+    height: calc(100vh - 1.586667rem);
+    background-color: #ededed;
+    overflow: auto;
     font-size: .213333rem;
   }
 </style>

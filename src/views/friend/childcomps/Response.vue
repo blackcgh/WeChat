@@ -77,7 +77,7 @@
 <style scoped>
   #response {
     position: fixed;
-    width: 100vw;
+    width: 10rem;
     height: 100vh;
     background-color: #ededed;
     z-index: 1;
@@ -86,32 +86,31 @@
   span {
     position: absolute;
     top: 0;
-    right: 10px;
-    font-size: 18px;
+    right: .266667rem;
+    font-size: .48rem;
   }
 
   h4 {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    padding: .266667rem;
+    border-bottom: .026667rem solid #ddd;
     background-color: #fff;
-    font-size: 14px;
+    font-size: .373333rem;
     color: #222;
   }
 
   li {
-    height: 60px;
-    border-bottom: 1px solid #ddd;
+    height: 1.6rem;
+    border-bottom: .026667rem solid #ddd;
     background-color: #fff;
     overflow: hidden;
   }
 
   .req-avatar {
     float: left;
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    background-color: pink;
-    border-radius: 3px;
+    width: 1.066667rem;
+    height: 1.066667rem;
+    margin: .266667rem;
+    border-radius: .08rem;
   }
 
   .req-avatar img {
@@ -121,35 +120,35 @@
 
   .req-user {
     float: left;
-    height: 40px;
-    padding: 13px 0 10px;
+    height: 1.066667rem;
+    padding: .346667rem 0 .266667rem;
   }
 
   b {
-    font-size: 16px;
+    font-size: .426667rem;
   }
 
   p {
-    padding-top: 5px;
+    padding-top: .133333rem;
     color: #ccc;
-    font-size: 14px;
+    font-size: .373333rem;
   }
 
   .agree-btn {
     float: right;
-    width: 60px;
-    height: 30px;
-    margin: 15px 10px 0 0;
+    width: 1.6rem;
+    height: .8rem;
+    margin: .4rem .266667rem 0 0;
     background-color: rgb(30, 177, 30);
-    border-radius: 3px;
+    border-radius: .08rem;
     text-align: center;
-    line-height: 30px;
+    line-height: .8rem;
     color: #fff;
   }
 
   .empty {
-    margin-top: 15px;
-    font-size: 14px;
+    margin-top: .4rem;
+    font-size: .373333rem;
     color: #969696;
     text-align: center;
   }
