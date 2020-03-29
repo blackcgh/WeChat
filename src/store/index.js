@@ -57,7 +57,7 @@ const mutations = {
   // 上传头像
   upload(state) {
     const r = Math.random().toString().substr(2, 4);
-    state.userData.avatar = 'http://localhost/images/' + state.userData['_id'] + '?t=' + r;
+    state.userData.avatar = 'http://192.168.1.8/images/' + state.userData['_id'] + '?t=' + r;
   }
 }
 
